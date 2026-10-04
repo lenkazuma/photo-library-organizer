@@ -8,6 +8,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import shutil
+import sys
 import tempfile
 import uuid
 
@@ -285,6 +286,9 @@ def apply_decisions(root, decisions_file, state_dir=None, apply=False):
 
 
 def main(argv=None):
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, 'reconfigure'):
+            stream.reconfigure(encoding='utf-8')
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('mode', choices=['scan', 'preview', 'apply'])
     parser.add_argument('--root', required=True, type=Path, help='Existing photo-library root; always explicit')

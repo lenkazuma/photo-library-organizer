@@ -584,6 +584,11 @@ def make_parser():
 
 
 def main(argv=None):
+    # Windows redirected streams otherwise inherit legacy code pages, even when
+    # files use UTF-8. Keep JSON and bilingual messages consistent in pipelines.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
     parser = make_parser()
     args = parser.parse_args(argv)
     try:

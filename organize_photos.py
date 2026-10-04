@@ -7,6 +7,7 @@ import json
 import os
 import re
 import shutil
+import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -236,6 +237,9 @@ class Organizer:
 
 
 def main(argv=None):
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description="Preview-first photo organizer / 照片整理（默认只预览）")
     parser.add_argument("--root", required=True, type=Path, help="Photo library root / 照片库根目录")
     parser.add_argument("--apply", action="store_true", help="Apply this run's plan / 执行本次计划")
