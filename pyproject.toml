@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "personal-photo-library-organizer"
+version = "0.1.0"
+description = "Preview-first local photo organization, reviewed OCR sorting, and offline metadata search"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [{name = "Zhenzhen Liu"}]
+dependencies = []
+
+[project.optional-dependencies]
+metadata = ["Pillow>=10,<13"]
+heif = ["Pillow>=10,<13", "pillow-heif>=0.18,<2"]
+ocr = ["Pillow>=10,<13", "pillow-heif>=0.18,<2", "numpy>=1.26,<3", "opencv-python-headless>=4.9,<6", "rapidocr-onnxruntime>=1.2.3,<2"]
+
+[project.scripts]
+photo-organize = "organize_photos:main"
+photo-metadata = "photo_metadata:main"
+photo-text-review = "text_review:main"
+
+[project.urls]
+Repository = "https://github.com/lenkazuma/photo-library-organizer"
+
+[tool.setuptools]
+py-modules = ["organize_photos", "photo_metadata", "text_review", "ocr_detector"]

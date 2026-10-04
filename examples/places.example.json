@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "description": "Illustrative rectangular search regions only. These are not national borders, do not cover whole countries, and contain no personal observations. Copy and adjust locally.",
+  "description_zh": "仅用于演示的矩形搜索区域，不代表国界、不覆盖整个国家，也不含个人观察记录。请在本地复制修改。",
+  "places": [
+    {
+      "id": "sydney-example",
+      "name": "Sydney example region",
+      "name_zh": "悉尼示例区域",
+      "country": "AU",
+      "bbox": [150.5, -34.3, 151.5, -33.3]
+    },
+    {
+      "id": "melbourne-example",
+      "name": "Melbourne example region",
+      "name_zh": "墨尔本示例区域",
+      "country": "AU",
+      "bbox": [144.4, -38.3, 145.6, -37.3]
+    },
+    {
+      "id": "shenzhen-example",
+      "name": "Shenzhen example region",
+      "name_zh": "深圳示例区域",
+      "country": "CN",
+      "bbox": [113.9, 22.5, 114.15, 22.7]
+    }
+  ]
+}
